@@ -1,0 +1,19 @@
+my-apache:
+  build: ./dockerfiles/apache
+  volumes:
+    - ./public:/var/www/html
+  links:
+    - mysql:mysql
+
+mysql:
+  image: mysql:5.6
+  environment:
+    MYSQL_ROOT_PASSWORD: 123
+    MYSQL_DATABASE: db
+    MYSQL_USER: user
+    MYSQL_PASSWORD: pass
+
+phpmyadmin:
+  image: nazarpc/phpmyadmin
+  links:
+    - mysql:mysql
