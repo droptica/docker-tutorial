@@ -1,3 +1,4 @@
 #/bin/bash
-docker run -d httpd httpd-foreground
+echo "docker run -d -p 80:80 httpd httpd-foreground"
+docker run -d -p 80:80 httpd httpd-foreground
 
